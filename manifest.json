@@ -1,0 +1,24 @@
+{
+  "name": "AI/DBO 판촉물 입출고 대장",
+  "short_name": "AI/DBO 판촉물",
+  "description": "AI/DBO팀 판촉물 입출고 관리 대장",
+  "start_url": "./index_team2.html",
+  "display": "standalone",
+  "background_color": "#F7F8F5",
+  "theme_color": "#1D9E75",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
