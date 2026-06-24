@@ -87,6 +87,8 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); min-
 .data-table tbody tr:last-child td { border-bottom: none; }
 .data-table tbody tr:hover td { background: #FAFAF7; }
 .data-table .mono { font-family: var(--mono); font-size: 13px; }
+#outbound-tbody td:nth-child(4) { max-width: 70px; word-break: keep-all; }
+#outbound-tbody td:nth-child(7) { min-width: 90px; }
 .badge { display: inline-flex; align-items: center; gap: 4px; padding: 3px 9px; border-radius: 99px; font-size: 12px; font-weight: 500; }
 .badge-ok { background: var(--accent-light); color: var(--accent-mid); }
 .badge-low { background: var(--warn-light); color: var(--warn-dark); }
