@@ -125,7 +125,7 @@ input[type="date"].form-input { -webkit-appearance: none; appearance: none; heig
   span.hide-mobile { display: inline !important; }
 }
 @media (max-width: 700px) {
-  
+  .out-hide { display: none; }
   .main { padding: 16px 16px 40px; padding-left: max(16px, env(safe-area-inset-left)); padding-right: max(16px, env(safe-area-inset-right)); padding-bottom: max(40px, env(safe-area-inset-bottom)); }
   .stat-grid { grid-template-columns: repeat(2, 1fr); }
   .form-grid { grid-template-columns: 1fr 1fr; }
@@ -280,7 +280,7 @@ input[type="date"].form-input { -webkit-appearance: none; appearance: none; heig
     </div>
     <div class="table-wrap">
       <table class="data-table">
-        <thead><tr><th>출고일자</th><th>품목명</th><th>출고처</th><th>수령인</th><th class="r">수량</th><th>목적</th><th>출고자</th><th>비고</th><th class="c">수정/삭제</th></tr></thead>
+        <thead><tr><th>출고일자</th><th>품목명</th><th>출고처</th><th class="out-hide">수령인</th><th class="r">수량</th><th>목적</th><th>출고자</th><th class="out-hide">비고</th><th class="c">수정/삭제</th></tr></thead>
         <tbody id="outbound-tbody"></tbody>
       </table>
     </div>
@@ -458,7 +458,7 @@ function renderOutbound() {
   const indexed = outboundLogs.map((l, i) => ({ l, i }));
   indexed.sort((a, b) => b.l.date.localeCompare(a.l.date));
   tbody.innerHTML = indexed.map(({ l, i: realIdx }) => {
-    return `<tr><td class="mono">${l.date}</td><td><strong>${l.name}</strong></td><td>${l.dest||'-'}</td><td>${l.recipient||'-'}</td><td class="r mono" style="color:var(--danger);font-weight:700">-${l.qty.toLocaleString()}</td><td>${l.purpose||'-'}</td><td>${l.manager||'-'}</td><td style="color:var(--text-muted)">${l.note||'-'}</td><td class="c" style="white-space:nowrap"><button class="btn-edit" onclick="openEditModal('out',${realIdx})">수정</button><button class="btn-del" onclick="deleteOutbound(${realIdx})">삭제</button></td></tr>`;
+  return `<tr><td class="mono">${l.date}</td><td><strong>${l.name}</strong></td><td>${l.dest||'-'}</td><td class="out-hide">${l.recipient||'-'}</td><td class="r mono" style="color:var(--danger);font-weight:700">-${l.qty.toLocaleString()}</td><td>${l.purpose||'-'}</td><td>${l.manager||'-'}</td><td class="out-hide" style="color:var(--text-muted)">${l.note||'-'}</td><td class="c" style="white-space:nowrap"><button class="btn-edit" onclick="openEditModal('out',${realIdx})">수정</button><button class="btn-del" onclick="deleteOutbound(${realIdx})">삭제</button></td></tr>`;  
   }).join('');
 }
 
